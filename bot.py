@@ -114,12 +114,22 @@ async def remove_thumb(c, m):
         await m.reply("thumb successfully removed")
     else:
         return await m.reply("Sorry, thumbs not set")
-
+        
+@bot.on_message(filters.command("cekthumb") & filters.private)
+async def cek_thumb(c, m):
+    if not os.path.isfile(f"thumb/{m.from_user.id}.jpg"):
+        return await m.reply("Sorry, thumbs not set")
+    elif os.path.isfile(f"thumb/{m.from_user.id}.jpg"):
+        iya = f"thumb/{m.from_user.id}.jpg"
+        await c.send_photo(m.chat.id, iya)
+    
 @bot.on_message(filters.command("rename") & filters.private)
 async def rename_file(c, m):
     rep = m.reply_to_message
     if not rep:
         return await m.reply("Please reply to video")
+    if rep.video.file_size < 10000000:
+        return await m.reply("Sorry, the file size is less than 10MB")
     if rep.video:
         if not os.path.isfile(f"thumb/{m.from_user.id}.jpg"):
             return await m.reply("Sorry, thumbs not set")
