@@ -1,0 +1,21 @@
+{
+    "name": "CustomThumb",
+    "description": "[CustomThumb] is a bot to change the thumb video according to custom",
+    "repository": "https://github.com/BukanDev/CustomThumb",
+    "logo": "https://telegra.ph/file/aa4792ae1535cc79ae5a8.jpg",
+    "stack": "heroku-22",
+    "env": {
+        "TOKEN": {
+            "description": "you can get in @BotFather",
+            "required": true
+        },
+        "API_ID": {
+            "description": "you can get in my.telegram.org",
+            "required": true
+        },
+        "API_HASH": {
+        "description": "you can get in my.telegram.org",
+        "required": true
+        }
+    }
+}
