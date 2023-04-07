@@ -1,7 +1,7 @@
 # CustomThumb
 
 <p align="center">
-  <a href="https://github.com/BukanDev/CustomThumb/stargazers">
+  <a href="https://github.com/BukanDev/CustomThumb/stars">
     <img src="https://img.shields.io/github/stars/BukanDev/CustomThumb?style=social">
 
   </a>
