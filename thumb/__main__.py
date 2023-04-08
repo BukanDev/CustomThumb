@@ -6,6 +6,7 @@
 # <https://www.github.com/BukanDev/CustomThumb/blob/main/LICENSE/>.
 #
 
+import importlib
 from thumb import bot
 from asyncio import get_event_loop_policy
 from pyrogram.methods.utilities.idle import idle
