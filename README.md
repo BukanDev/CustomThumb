@@ -38,10 +38,10 @@ root@root $ python3 bot.py
 
 ## Required Strings :-
 
-* -> `TG_BOT_TOKEN`<br> **Your Bot Token Taken From [@BotFather](https://t.me/botfather)**
+* -> `TG_BOT_TOKEN`<br> Your Bot Token Taken From [@BotFather](https://t.me/botfather)
 
 
-* -> `APP_ID`__And__ `API_HASH`<br>**Get It From [Here](http://www.my.telegram.org)
+* -> `APP_ID`__And__ `API_HASH`<br> Get It From [Here](http://www.my.telegram.org)
 
 ### Credits, and Thanks to Beloved Developers ;
 
