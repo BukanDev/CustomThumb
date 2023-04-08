@@ -144,21 +144,15 @@ async def rename_file(c, m):
             anu = await c.download_media(rep, progress=progress_dl,
                         progress_args=("**Start Downloading...**", hems, tm),
             )
-            if rep.video.width < 750:
-                p = 720
-                x = 1280
-            elif rep.video.width < 1300:
-                p = 1280
-                x = 720
             await c.send_video(
                 m.chat.id,
                 anu,
                 caption=rep.caption,
                 caption_entities=rep.caption_entities,
                 duration=rep.video.duration,
+                width=rep.video.width,
+                height=rep.video.height,
                 thumb=iya,
-                width=p,
-                height=x,
                 progress=progress_dl,
                 progress_args=("**Start Uploading**", hems, tm),
             )
