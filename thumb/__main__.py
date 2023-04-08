@@ -18,7 +18,7 @@ async def main():
     await bot.start()
     for all_module in ALL_MODULES:
         importlib.import_module(f"thumb.plugins.{all_module}")
-    print(f"{bot.me.first_name} | @{bot.me.username}Telah aktif")
+    print(f"{bot.me.first_name} | @{bot.me.username} Telah aktif")
     await bot.set_bot_commands(
             [
                 BotCommand("start", "start bot"),
