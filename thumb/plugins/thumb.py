@@ -9,25 +9,8 @@
 import os
 import time
 import math
-from pyrogram import Client, filters
-from dotenv import load_dotenv
-
-load_dotenv(".env")
-
-BOT_TOKEN = os.environ.get("BOT_TOKEN")
-API_ID = int(os.environ.get("API_ID"))
-API_HASH = os.environ.get("API_HASH")
-
-
-bot = Client(
-    name="RenameBot",
-    api_id=API_ID,
-    api_hash=API_HASH,
-    bot_token=BOT_TOKEN,
-    
-    )
-
-print("The bot is on")
+from pyrogram import filters
+from thumb import bot
 
 
 async def progress_dl(current, total, ud_type, message, start):
@@ -161,7 +144,4 @@ async def rename_file(c, m):
         
     else:
         return await m.reply("Sorry wrong")
-        
-
-
-bot.run()
+       
