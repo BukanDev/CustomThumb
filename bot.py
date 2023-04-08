@@ -26,7 +26,7 @@ bot = Client(
     bot_token=BOT_TOKEN,
     
     )
-bot.run()
+
 print("The bot is on")
 
 
@@ -162,3 +162,6 @@ async def rename_file(c, m):
     else:
         return await m.reply("Sorry wrong")
         
+
+
+bot.run()
