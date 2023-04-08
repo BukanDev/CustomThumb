@@ -5,7 +5,7 @@
     "logo": "https://telegra.ph/file/aa4792ae1535cc79ae5a8.jpg",
     "stack": "heroku-22",
     "env": {
-        "TOKEN": {
+        "BOT_TOKEN": {
             "description": "you can get in @BotFather",
             "required": true
         },
