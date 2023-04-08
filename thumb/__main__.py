@@ -7,15 +7,15 @@
 #
 
 from thumb import bot
+from asyncio import get_event_loop_policy
+from pyrogram.methods.utilities.idle import idle
 
-import logging
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
-
-
-
+async def main():
+    await bot.start()
+    print(f"{bot.me.first_name} | @{bot.me.username}Telah aktif")
+    await idle()
 
 if __name__ == "__main__" :
-    bot.run()
+    get_event_loop_policy().get_event_loop().run_until_complete(main())
+    
     
