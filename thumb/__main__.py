@@ -9,9 +9,12 @@
 from thumb import bot
 from asyncio import get_event_loop_policy
 from pyrogram.methods.utilities.idle import idle
+from thumb.plugins import ALL_MODULES
 
 async def main():
     await bot.start()
+    for all_module in ALL_MODULES:
+        importlib.import_module(f"thumb.plugins.{all_module}")
     print(f"{bot.me.first_name} | @{bot.me.username}Telah aktif")
     await idle()
 
