@@ -33,7 +33,7 @@ root@root $ pip3 install -r requirements.txt
 root@root $ nano sample.env 
 root@root $ cp sample.env .env
 root@root $ screen -S bukan
-root@root $ python3 bot.py
+root@root $ python3 -m thumb
 ```
 
 ## Required Strings :-
