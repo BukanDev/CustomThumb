@@ -1,3 +1,11 @@
+# Credits: @pySmartDL
+# Copyright (C) 2023 CustomThumb
+#
+# This file is a part of < https://github.com/BukanDev/CustomThumb/ >
+# PLease read the GNU Affero General Public License in
+# <https://www.github.com/BukanDev/CustomThumb/blob/main/LICENSE/>.
+#
+
 from glob import glob
 from os.path import basename, dirname, isfile
 
