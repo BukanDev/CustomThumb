@@ -6,10 +6,12 @@
 # <https://www.github.com/BukanDev/CustomThumb/blob/main/LICENSE/>.
 #
 
+import math
 import os
 import time
-import math
+
 from pyrogram import filters
+
 from thumb import bot
 
 
@@ -73,27 +75,34 @@ def TimeFormatter(milliseconds: int) -> str:
         + ((str(milliseconds) + "ms, ") if milliseconds else "")
     )
     return tmp[:-2]
-    
-    
+
+
 @bot.on_message(filters.command("start") & filters.private)
 async def start_bot(c, m):
-    await m.reply("This bot is a bot for changing video thumbnails with your custom photos")
+    await m.reply(
+        "This bot is a bot for changing video thumbnails with your custom photos"
+    )
+
 
 @bot.on_message(filters.command("help") & filters.private)
 async def help_bot(c, m):
-    await m.reply("/start - for start bot\n/help - for help bot\n/thumb - for custom thumb\n/rthumb - for remove custom thumb\n/cekthumb - for cek custom thumb\n/rename - for rename video")
-    
+    await m.reply(
+        "/start - for start bot\n/help - for help bot\n/thumb - for custom thumb\n/rthumb - for remove custom thumb\n/cekthumb - for cek custom thumb\n/rename - for rename video"
+    )
+
+
 @bot.on_message(filters.command("thumb") & filters.private)
 async def set_thumb(c, m):
     rep = m.reply_to_message
     if not rep:
         return await m.reply("Please reply to photo")
     if rep.photo:
-        anu = await c.download_media(rep, f"thumb/{m.from_user.id}.jpg")
+        await c.download_media(rep, f"thumb/{m.from_user.id}.jpg")
         await m.reply("thumb successfully set")
     else:
         return await m.reply("Sorry wrong")
-        
+
+
 @bot.on_message(filters.command("rthumb") & filters.private)
 async def remove_thumb(c, m):
     if os.path.isfile(f"thumb/{m.from_user.id}.jpg"):
@@ -101,7 +110,8 @@ async def remove_thumb(c, m):
         await m.reply("thumb successfully removed")
     else:
         return await m.reply("Sorry, thumbs not set")
-        
+
+
 @bot.on_message(filters.command("cekthumb") & filters.private)
 async def cek_thumb(c, m):
     if not os.path.isfile(f"thumb/{m.from_user.id}.jpg"):
@@ -109,7 +119,8 @@ async def cek_thumb(c, m):
     elif os.path.isfile(f"thumb/{m.from_user.id}.jpg"):
         iya = f"thumb/{m.from_user.id}.jpg"
         await c.send_photo(m.chat.id, iya)
-    
+
+
 @bot.on_message(filters.command("rename") & filters.private)
 async def rename_file(c, m):
     rep = m.reply_to_message
@@ -124,8 +135,10 @@ async def rename_file(c, m):
             iya = f"thumb/{m.from_user.id}.jpg"
             hems = await m.reply("Start renaming the video...")
             tm = time.time()
-            anu = await c.download_media(rep, progress=progress_dl,
-                        progress_args=("**Start Downloading...**", hems, tm),
+            anu = await c.download_media(
+                rep,
+                progress=progress_dl,
+                progress_args=("**Start Downloading...**", hems, tm),
             )
             await c.send_video(
                 m.chat.id,
@@ -141,7 +154,6 @@ async def rename_file(c, m):
             )
             await hems.delete()
             os.remove(anu)
-        
+
     else:
         return await m.reply("Sorry wrong")
-       

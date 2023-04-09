@@ -8,8 +8,9 @@
 
 
 import os
-from pyrogram import Client
+
 from dotenv import load_dotenv
+from pyrogram import Client
 
 load_dotenv(".env")
 
@@ -25,4 +26,4 @@ bot = Client(
     bot_token=BOT_TOKEN,
     plugins=dict(root="thumb/plugins/"),
     in_memory=True,
-    )
+)
