@@ -1,4 +1,4 @@
-# CustomThumb
+# CustomThumb or RenameBot
 
 <p align="center">
   <a href="https://github.com/BukanDev/CustomThumb/stars">
@@ -27,13 +27,13 @@ please don't delete credits and use this source code wisely
 ## Deploy VPS
 
 ```console
-root@root $ git clone https://github.com/BukanDev/CustomThumb
-root@root $ cd CustomThumb
-root@root $ pip3 install -r requirements.txt
-root@root $ nano sample.env 
-root@root $ cp sample.env .env
-root@root $ screen -S bukan
-root@root $ python3 -m thumb
+root@root$ git clone https://github.com/BukanDev/CustomThumb
+root@root$ cd CustomThumb
+root@root$ pip3 install -r requirements.txt
+root@root$ nano sample.env 
+root@root$ cp sample.env .env
+root@root$ screen -S bukan
+root@root$ python3 -m thumb
 ```
 
 ## Required Strings :-
