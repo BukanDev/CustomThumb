@@ -97,7 +97,7 @@ async def set_thumb(c, m):
     if not rep:
         return await m.reply("Please reply to photo")
     if rep.photo:
-        await c.download_media(rep, f"thumb/{m.from_user.id}.jpg")
+        await c.download_media(rep, f"thumbs/{m.from_user.id}.jpg")
         await m.reply("thumb successfully set")
     else:
         return await m.reply("Sorry wrong")
@@ -105,8 +105,8 @@ async def set_thumb(c, m):
 
 @bot.on_message(filters.command("rthumb") & filters.private)
 async def remove_thumb(c, m):
-    if os.path.isfile(f"thumb/{m.from_user.id}.jpg"):
-        os.remove(f"thumb/{m.from_user.id}.jpg")
+    if os.path.isfile(f"thumbs/{m.from_user.id}.jpg"):
+        os.remove(f"thumbs/{m.from_user.id}.jpg")
         await m.reply("thumb successfully removed")
     else:
         return await m.reply("Sorry, thumbs not set")
@@ -114,10 +114,10 @@ async def remove_thumb(c, m):
 
 @bot.on_message(filters.command("cekthumb") & filters.private)
 async def cek_thumb(c, m):
-    if not os.path.isfile(f"thumb/{m.from_user.id}.jpg"):
+    if not os.path.isfile(f"thumbs/{m.from_user.id}.jpg"):
         return await m.reply("Sorry, thumbs not set")
-    elif os.path.isfile(f"thumb/{m.from_user.id}.jpg"):
-        iya = f"thumb/{m.from_user.id}.jpg"
+    elif os.path.isfile(f"thumbs/{m.from_user.id}.jpg"):
+        iya = f"thumbs/{m.from_user.id}.jpg"
         await c.send_photo(m.chat.id, iya)
 
 
@@ -129,10 +129,10 @@ async def rename_file(c, m):
     if rep.video.file_size < 10000000:
         return await m.reply("Sorry, the file size is less than 10MB")
     if rep.video:
-        if not os.path.isfile(f"thumb/{m.from_user.id}.jpg"):
+        if not os.path.isfile(f"thumbs/{m.from_user.id}.jpg"):
             return await m.reply("Sorry, thumbs not set")
-        elif os.path.isfile(f"thumb/{m.from_user.id}.jpg"):
-            iya = f"thumb/{m.from_user.id}.jpg"
+        elif os.path.isfile(f"thumbs/{m.from_user.id}.jpg"):
+            iya = f"thumbs/{m.from_user.id}.jpg"
             hems = await m.reply("Start renaming the video...")
             tm = time.time()
             anu = await c.download_media(
