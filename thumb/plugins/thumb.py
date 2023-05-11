@@ -128,6 +128,8 @@ async def rename_file(c, m):
         return await m.reply("Please reply to video")
     if rep.video.file_size < 10000000:
         return await m.reply("Sorry, the file size is less than 10MB")
+    if rep.video.file_size > 2000000000:
+        return await m.reply("Sorry the video file exceeded the limit")
     if rep.video:
         if not os.path.isfile(f"thumbs/{m.from_user.id}.jpg"):
             return await m.reply("Sorry, thumbs not set")
